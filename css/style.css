@@ -1,5 +1,5 @@
 /* =====================================
-   TradeLab - Dark Exchange UI
+   تنظیمات اصلی
 ===================================== */
 
 :root {
@@ -7,19 +7,18 @@
     --bg-soft: #0d1210;
     --surface: #111815;
     --surface-2: #151e19;
-    --surface-3: #1b2720;
 
     --green: #00d68f;
     --green-dark: #00a96e;
     --green-soft: rgba(0, 214, 143, .10);
 
     --red: #ff5964;
+    --red-soft: rgba(255, 89, 100, .10);
 
     --text: #f0f5f2;
     --muted: #89978f;
     --border: #202b25;
 
-    --radius: 15px;
     --transition: .25s ease;
 }
 
@@ -190,6 +189,212 @@ a {
 
 
 /* =====================================
+   دارایی حساب
+===================================== */
+
+.portfolio-section {
+    padding: 28px 0 10px;
+    background: var(--bg);
+}
+
+.portfolio-container {
+    width: min(1250px, calc(100% - 40px));
+    margin: auto;
+}
+
+.portfolio-card {
+    padding: 25px 30px 18px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 214, 143, .08),
+            transparent 40%
+        ),
+        linear-gradient(145deg, #141d18, #0e1410);
+
+    border: 1px solid #26382e;
+    border-radius: 17px;
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .18);
+}
+
+.portfolio-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.portfolio-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.portfolio-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+}
+
+.balance-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    color: var(--muted);
+    background: #19231d;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    font-size: 10px;
+    transition: var(--transition);
+}
+
+.balance-toggle:hover {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.balance-toggle span:first-child {
+    font-size: 16px;
+}
+
+.portfolio-main {
+    display: grid;
+    grid-template-columns: 1.5fr 1px 1fr 1px .7fr;
+    align-items: center;
+    gap: 35px;
+
+    padding: 28px 0;
+}
+
+.portfolio-divider {
+    height: 75px;
+    width: 1px;
+    background: var(--border);
+}
+
+.balance-block,
+.profit-block,
+.profit-percent-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.balance-label {
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 9px;
+}
+
+.balance-line,
+.profit-line {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+}
+
+.main-balance {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -.5px;
+    direction: ltr;
+}
+
+.balance-currency {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.dollar-balance {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-top: 3px;
+
+    color: #89978f;
+    font-size: 12px;
+    direction: ltr;
+}
+
+.dollar-balance strong {
+    color: #c3d0c8;
+    font-weight: 700;
+}
+
+.dollar-balance span:last-child {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.profit-value {
+    font-size: 23px;
+    font-weight: 800;
+    direction: ltr;
+}
+
+.negative {
+    color: var(--red) !important;
+}
+
+.positive {
+    color: var(--green) !important;
+}
+
+.profit-dollar {
+    color: var(--red);
+}
+
+.profit-dollar strong {
+    color: var(--red);
+}
+
+.percent-value {
+    font-size: 23px;
+    font-weight: 900;
+    direction: ltr;
+}
+
+.percent-caption {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.portfolio-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+
+    color: #68776e;
+    font-size: 10px;
+}
+
+.hidden-balance {
+    filter: blur(9px);
+    user-select: none;
+}
+
+
+/* =====================================
    دکمه‌ها
 ===================================== */
 
@@ -239,16 +444,16 @@ a {
 
 
 /* =====================================
-   بخش اصلی
+   معرفی اصلی
 ===================================== */
 
 .hero-section {
-    padding: 90px 0 100px;
+    padding: 80px 0 100px;
 
     background:
         radial-gradient(
             circle at 15% 40%,
-            rgba(0, 214, 143, .09),
+            rgba(0, 214, 143, .08),
             transparent 35%
         ),
         linear-gradient(180deg, #080b0a, #0b100d);
@@ -292,7 +497,6 @@ a {
     font-size: clamp(35px, 4vw, 52px);
     line-height: 1.65;
     font-weight: 900;
-    letter-spacing: -1px;
 }
 
 .hero-content h1 span {
@@ -1036,6 +1240,11 @@ a {
     .trust-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .portfolio-main {
+        gap: 20px;
+    }
+
 }
 
 
@@ -1046,7 +1255,8 @@ a {
 @media (max-width: 768px) {
 
     .section-container,
-    .hero-container {
+    .hero-container,
+    .portfolio-container {
         width: calc(100% - 32px);
     }
 
@@ -1107,8 +1317,50 @@ a {
         font-size: 10px;
     }
 
+    /* دارایی موبایل */
+
+    .portfolio-section {
+        padding-top: 18px;
+    }
+
+    .portfolio-card {
+        padding: 20px 17px 15px;
+    }
+
+    .portfolio-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 12px;
+        padding: 23px 0;
+    }
+
+    .portfolio-divider {
+        display: none;
+    }
+
+    .balance-block {
+        grid-column: 1 / -1;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .main-balance {
+        font-size: 27px;
+    }
+
+    .profit-value,
+    .percent-value {
+        font-size: 20px;
+    }
+
+    .portfolio-bottom {
+        gap: 10px;
+        font-size: 9px;
+    }
+
+    /* معرفی */
+
     .hero-section {
-        padding: 65px 0;
+        padding: 60px 0;
     }
 
     .hero-container {
@@ -1196,6 +1448,7 @@ a {
     .footer-brand {
         grid-column: 1 / -1;
     }
+
 }
 
 
@@ -1270,6 +1523,12 @@ a {
         flex-direction: column;
         gap: 8px;
     }
+
+    .portfolio-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 }
 
 
@@ -1287,4 +1546,5 @@ a {
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
     }
+
    }

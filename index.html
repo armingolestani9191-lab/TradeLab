@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#080b0a">
 
-    <meta name="description" content="TradeLab؛ بازار ارزهای دیجیتال و محیط تمرینی معامله‌گری">
+    <meta name="description" content="TradeLab؛ محیط آموزشی و تمرینی ارزهای دیجیتال">
 
-    <title>TradeLab | خرید و فروش ارز دیجیتال</title>
+    <title>TradeLab | بازار ارزهای دیجیتال</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 
 <body>
@@ -32,13 +32,15 @@
 
             <nav class="main-nav" id="mainNav">
                 <a href="#home" class="active">صفحه اصلی</a>
-                <a href="#markets">قیمت ارز دیجیتال</a>
-                <a href="#features">امکانات</a>
+                <a href="#markets">بازار ارزها</a>
+                <a href="#practice">معامله آزمایشی</a>
                 <a href="#learn">آموزش</a>
             </nav>
 
             <div class="header-actions">
-                <a href="#practice" class="login-button">ورود به محیط تمرینی</a>
+                <a href="#practice" class="login-button">
+                    حساب آزمایشی
+                </a>
             </div>
 
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="باز کردن منو">
@@ -51,6 +53,128 @@
 
 
     <main>
+
+        <!-- دارایی حساب -->
+        <section class="portfolio-section">
+
+            <div class="portfolio-container">
+
+                <div class="portfolio-card">
+
+                    <div class="portfolio-top">
+
+                        <div class="portfolio-title">
+                            <span class="portfolio-dot"></span>
+                            <span>دارایی حساب آزمایشی</span>
+                        </div>
+
+                        <button class="balance-toggle" id="balanceToggle" type="button">
+                            <span id="eyeIcon">◉</span>
+                            <span id="eyeText">مخفی کردن</span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="portfolio-main">
+
+                        <div class="balance-block">
+
+                            <span class="balance-label">
+                                ارزش کل دارایی
+                            </span>
+
+                            <div class="balance-line">
+
+                                <strong class="main-balance hidden-balance" id="mainBalance">
+                                    ۱۲,۸۰۰,۰۰۰
+                                </strong>
+
+                                <span class="balance-currency">
+                                    تومان
+                                </span>
+
+                            </div>
+
+                            <div class="dollar-balance">
+                                <span>≈</span>
+                                <strong id="dollarBalance">4.92</strong>
+                                <span>USDT</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="portfolio-divider"></div>
+
+
+                        <div class="profit-block">
+
+                            <span class="balance-label">
+                                سود و زیان امروز
+                            </span>
+
+                            <div class="profit-line">
+
+                                <strong class="profit-value negative hidden-balance" id="dailyProfit">
+                                    −۱۳۰,۰۰۰
+                                </strong>
+
+                                <span class="balance-currency">
+                                    تومان
+                                </span>
+
+                            </div>
+
+                            <div class="dollar-balance profit-dollar negative">
+                                <span>−</span>
+                                <strong id="dailyDollar">0.05</strong>
+                                <span>USDT</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="portfolio-divider"></div>
+
+
+                        <div class="profit-percent-block">
+
+                            <span class="balance-label">
+                                درصد تغییر امروز
+                            </span>
+
+                            <strong class="percent-value negative">
+                                −۱.۰٪
+                            </strong>
+
+                            <span class="percent-caption">
+                                نسبت به روز گذشته
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="portfolio-bottom">
+
+                        <span>
+                            موجودی مجازی TradeLab
+                        </span>
+
+                        <span>
+                            آخرین بروزرسانی: همین لحظه
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
 
         <!-- معرفی اصلی -->
         <section class="hero-section" id="home">
@@ -75,6 +199,7 @@
                     </p>
 
                     <div class="hero-buttons">
+
                         <a href="#practice" class="primary-button">
                             شروع رایگان
                             <span>←</span>
@@ -83,6 +208,7 @@
                         <a href="#markets" class="secondary-button">
                             مشاهده قیمت ارزها
                         </a>
+
                     </div>
 
                     <div class="hero-benefits">
@@ -98,21 +224,28 @@
                     <div class="hero-card">
 
                         <div class="hero-card-header">
+
                             <span>نمای کلی بازار</span>
+
                             <span class="market-indicator">
                                 <i></i>
                                 بازار جهانی
                             </span>
+
                         </div>
+
 
                         <div class="hero-btc">
 
                             <div class="coin-info">
+
                                 <div class="coin-icon btc">₿</div>
+
                                 <div>
                                     <strong>بیت‌کوین</strong>
                                     <small>Bitcoin / BTC</small>
                                 </div>
+
                             </div>
 
                             <div class="coin-value">
@@ -121,6 +254,7 @@
                             </div>
 
                         </div>
+
 
                         <div class="hero-chart">
 
@@ -133,8 +267,8 @@
 
                                 <defs>
                                     <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#16a36a" stop-opacity=".25"/>
-                                        <stop offset="100%" stop-color="#16a36a" stop-opacity="0"/>
+                                        <stop offset="0%" stop-color="#00d68f" stop-opacity=".25"/>
+                                        <stop offset="100%" stop-color="#00d68f" stop-opacity="0"/>
                                     </linearGradient>
                                 </defs>
 
@@ -146,7 +280,7 @@
                                 <path
                                     d="M0 120 C30 110 35 80 65 95 S100 120 125 80 S160 90 185 65 S220 90 245 70 S280 35 310 55 S350 70 375 35 S410 60 435 25 S475 40 500 10"
                                     fill="none"
-                                    stroke="#16a36a"
+                                    stroke="#00d68f"
                                     stroke-width="3"
                                     stroke-linecap="round"
                                 />
@@ -154,6 +288,7 @@
                             </svg>
 
                         </div>
+
 
                         <div class="hero-card-footer">
                             <span>TradeLab Market</span>
@@ -169,7 +304,7 @@
         </section>
 
 
-        <!-- امکانات و مزایا -->
+        <!-- امکانات -->
         <section class="trust-section">
 
             <div class="section-container">
@@ -400,7 +535,6 @@
 
         </section>
 
-
     </main>
 
 
@@ -430,14 +564,14 @@
                     <strong>دسترسی سریع</strong>
                     <a href="#home">صفحه اصلی</a>
                     <a href="#markets">قیمت ارزها</a>
-                    <a href="#features">امکانات</a>
+                    <a href="#practice">محیط تمرینی</a>
                 </div>
 
 
                 <div class="footer-links">
                     <strong>یادگیری</strong>
                     <a href="#learn">آموزش</a>
-                    <a href="#practice">محیط تمرینی</a>
+                    <a href="#practice">شروع تمرین</a>
                 </div>
 
             </div>
@@ -453,7 +587,45 @@
     </footer>
 
 
-    <script src="js/app.js"></script>
+    <script>
+
+        // منوی موبایل
+        const menuButton = document.getElementById("mobileMenuButton");
+        const mainNav = document.getElementById("mainNav");
+
+        menuButton.addEventListener("click", function () {
+            mainNav.classList.toggle("show");
+        });
+
+        document.querySelectorAll(".main-nav a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                mainNav.classList.remove("show");
+            });
+        });
+
+
+        // نمایش و مخفی کردن دارایی
+        const balanceToggle = document.getElementById("balanceToggle");
+        const mainBalance = document.getElementById("mainBalance");
+        const dailyProfit = document.getElementById("dailyProfit");
+        const eyeIcon = document.getElementById("eyeIcon");
+        const eyeText = document.getElementById("eyeText");
+
+        let balanceHidden = false;
+
+        balanceToggle.addEventListener("click", function () {
+
+            balanceHidden = !balanceHidden;
+
+            mainBalance.classList.toggle("hidden-balance", balanceHidden);
+            dailyProfit.classList.toggle("hidden-balance", balanceHidden);
+
+            eyeIcon.textContent = balanceHidden ? "◎" : "◉";
+            eyeText.textContent = balanceHidden ? "نمایش موجودی" : "مخفی کردن";
+
+        });
+
+    </script>
 
 </body>
-            </html>
+    </html>

@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
 
-    <meta name="theme-color" content="#080d19">
-    <meta name="description" content="TradeLab - بازار ارزهای دیجیتال و محیط تمرینی معامله‌گری">
+    <meta name="description" content="TradeLab؛ بازار ارزهای دیجیتال و محیط تمرینی معامله‌گری">
 
-    <title>TradeLab | بازار ارزهای دیجیتال</title>
+    <title>TradeLab | خرید و فروش ارز دیجیتال</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,35 +20,25 @@
 
 <body>
 
-    <!-- هدر سایت -->
+    <!-- هدر -->
     <header class="site-header">
 
         <div class="header-container">
 
-            <a href="#" class="brand">
-                <span class="brand-icon">T.</span>
-                <span class="brand-name">Trade<span>Lab</span></span>
+            <a href="#home" class="brand">
+                <span class="brand-icon">T</span>
+                <span>Trade<span class="brand-highlight">Lab</span></span>
             </a>
 
-            <nav class="main-nav">
+            <nav class="main-nav" id="mainNav">
                 <a href="#home" class="active">صفحه اصلی</a>
-                <a href="#markets">بازار ارزها</a>
+                <a href="#markets">قیمت ارز دیجیتال</a>
                 <a href="#features">امکانات</a>
-                <a href="#about">درباره ما</a>
+                <a href="#learn">آموزش</a>
             </nav>
 
             <div class="header-actions">
-
-                <span class="market-status">
-                    <span class="status-dot"></span>
-                    بازار جهانی
-                </span>
-
-                <a href="#practice" class="header-button">
-                    شروع معامله‌گری
-                    <span>←</span>
-                </a>
-
+                <a href="#practice" class="login-button">ورود به محیط تمرینی</a>
             </div>
 
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="باز کردن منو">
@@ -62,124 +52,101 @@
 
     <main>
 
-        <!-- بخش اصلی معرفی -->
+        <!-- معرفی اصلی -->
         <section class="hero-section" id="home">
-
-            <div class="hero-background"></div>
 
             <div class="hero-container">
 
                 <div class="hero-content">
 
-                    <div class="hero-label">
-                        <span class="hero-label-dot"></span>
-                        دنیای جدید معامله‌گری
-                    </div>
+                    <span class="hero-label">
+                        دنیای ارزهای دیجیتال
+                    </span>
 
                     <h1>
-                        هوشمندانه‌تر
-                        <span>معامله کن.</span>
-                        حرفه‌ای‌تر یاد بگیر.
+                        دنیای ارزهای دیجیتال
+                        <span>در دستان توست!</span>
                     </h1>
 
                     <p>
-                        بازار ارزهای دیجیتال رو بررسی کن،
-                        قیمت‌ها رو دنبال کن و بدون ریسک پول واقعی،
-                        مهارت معامله‌گری خودت رو افزایش بده.
+                        بازار ارزهای دیجیتال رو دنبال کن،
+                        قیمت‌ها رو بررسی کن و مهارت معامله‌گری خودت رو
+                        در یک محیط آزمایشی و بدون پول واقعی افزایش بده.
                     </p>
 
                     <div class="hero-buttons">
-
                         <a href="#practice" class="primary-button">
-                            شروع معامله‌گری
+                            شروع رایگان
                             <span>←</span>
                         </a>
 
                         <a href="#markets" class="secondary-button">
-                            مشاهده بازار
+                            مشاهده قیمت ارزها
                         </a>
-
                     </div>
 
-                    <div class="hero-features">
-
-                        <div>
-                            <span class="feature-check">✓</span>
-                            بدون نیاز به سرمایه واقعی
-                        </div>
-
-                        <div>
-                            <span class="feature-check">✓</span>
-                            قیمت‌های بازار جهانی
-                        </div>
-
+                    <div class="hero-benefits">
+                        <span>✓ محیط تمرینی رایگان</span>
+                        <span>✓ بدون نیاز به پول واقعی</span>
                     </div>
 
                 </div>
 
 
-                <!-- کارت نمایشی بازار -->
                 <div class="hero-visual">
 
-                    <div class="visual-glow"></div>
+                    <div class="hero-card">
 
-                    <div class="market-preview">
-
-                        <div class="preview-header">
-                            <div>
-                                <span class="preview-caption">MARKET OVERVIEW</span>
-                                <h3>نمای کلی بازار</h3>
-                            </div>
-
-                            <span class="preview-live">
-                                <span></span>
-                                LIVE
+                        <div class="hero-card-header">
+                            <span>نمای کلی بازار</span>
+                            <span class="market-indicator">
+                                <i></i>
+                                بازار جهانی
                             </span>
                         </div>
 
-                        <div class="preview-main-coin">
+                        <div class="hero-btc">
 
-                            <div class="preview-coin-info">
-                                <div class="preview-coin-icon btc">₿</div>
-
+                            <div class="coin-info">
+                                <div class="coin-icon btc">₿</div>
                                 <div>
-                                    <strong>Bitcoin</strong>
-                                    <small>BTC / USDT</small>
+                                    <strong>بیت‌کوین</strong>
+                                    <small>Bitcoin / BTC</small>
                                 </div>
                             </div>
 
-                            <div class="preview-price">
+                            <div class="coin-value">
                                 <strong id="heroBtcPrice">---</strong>
                                 <span id="heroBtcChange">---</span>
                             </div>
 
                         </div>
 
-                        <div class="preview-chart">
+                        <div class="hero-chart">
 
-                            <div class="chart-labels">
-                                <span>نمودار قیمت بیت‌کوین</span>
-                                <span>۲۴ ساعت</span>
+                            <div class="chart-heading">
+                                <span>نمودار تغییرات قیمت</span>
+                                <span>۲۴ ساعت گذشته</span>
                             </div>
 
-                            <svg viewBox="0 0 500 150" preserveAspectRatio="none" class="chart-svg">
+                            <svg viewBox="0 0 500 160" preserveAspectRatio="none">
 
                                 <defs>
-                                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#398cff" stop-opacity="0.35"/>
-                                        <stop offset="100%" stop-color="#398cff" stop-opacity="0"/>
+                                    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#16a36a" stop-opacity=".25"/>
+                                        <stop offset="100%" stop-color="#16a36a" stop-opacity="0"/>
                                     </linearGradient>
                                 </defs>
 
                                 <path
-                                    d="M0 110 C25 100 35 115 55 90 S90 105 110 75 S145 90 165 65 S200 80 220 55 S255 75 275 45 S310 65 330 35 S365 60 385 28 S420 48 440 20 S475 38 500 10 L500 150 L0 150 Z"
-                                    fill="url(#chartGradient)"
+                                    d="M0 120 C30 110 35 80 65 95 S100 120 125 80 S160 90 185 65 S220 90 245 70 S280 35 310 55 S350 70 375 35 S410 60 435 25 S475 40 500 10 L500 160 L0 160 Z"
+                                    fill="url(#chartFill)"
                                 />
 
                                 <path
-                                    d="M0 110 C25 100 35 115 55 90 S90 105 110 75 S145 90 165 65 S200 80 220 55 S255 75 275 45 S310 65 330 35 S365 60 385 28 S420 48 440 20 S475 38 500 10"
+                                    d="M0 120 C30 110 35 80 65 95 S100 120 125 80 S160 90 185 65 S220 90 245 70 S280 35 310 55 S350 70 375 35 S410 60 435 25 S475 40 500 10"
                                     fill="none"
-                                    stroke="#398cff"
+                                    stroke="#16a36a"
                                     stroke-width="3"
                                     stroke-linecap="round"
                                 />
@@ -188,9 +155,9 @@
 
                         </div>
 
-                        <div class="preview-footer">
-                            <span>قیمت‌ها از بازار جهانی دریافت می‌شوند.</span>
-                            <span>TradeLab</span>
+                        <div class="hero-card-footer">
+                            <span>TradeLab Market</span>
+                            <span>BTC / USDT</span>
                         </div>
 
                     </div>
@@ -202,166 +169,44 @@
         </section>
 
 
-        <!-- نوار قیمت‌های منتخب -->
-        <section class="top-coins-section">
+        <!-- امکانات و مزایا -->
+        <section class="trust-section">
 
             <div class="section-container">
 
-                <div class="section-heading">
+                <div class="trust-grid">
 
-                    <div>
-                        <span class="section-eyebrow">TOP CRYPTOCURRENCIES</span>
-                        <h2>ارزهای برتر بازار</h2>
+                    <div class="trust-item">
+                        <span class="trust-icon">◈</span>
+                        <div>
+                            <strong>محیط تمرینی</strong>
+                            <small>تمرین بدون پول واقعی</small>
+                        </div>
                     </div>
 
-                    <a href="#markets" class="view-all">
-                        مشاهده همه ارزها
-                        <span>←</span>
-                    </a>
-
-                </div>
-
-
-                <div class="top-coins-grid">
-
-                    <article class="coin-card" data-symbol="BTCUSDT">
-
-                        <div class="coin-card-top">
-                            <div class="coin-identity">
-                                <span class="coin-logo btc">₿</span>
-
-                                <div>
-                                    <strong>بیت‌کوین</strong>
-                                    <small>BTC</small>
-                                </div>
-                            </div>
-
-                            <span class="coin-rank">01</span>
+                    <div class="trust-item">
+                        <span class="trust-icon">↗</span>
+                        <div>
+                            <strong>اطلاعات بازار</strong>
+                            <small>بررسی قیمت ارزها</small>
                         </div>
+                    </div>
 
-                        <div class="coin-card-price">
-                            <strong id="btcPrice">---</strong>
-                            <span id="btcChange">---</span>
+                    <div class="trust-item">
+                        <span class="trust-icon">◎</span>
+                        <div>
+                            <strong>تجربه ساده</strong>
+                            <small>رابط کاربری روان</small>
                         </div>
+                    </div>
 
-                        <div class="coin-card-bottom">
-                            <span>Bitcoin</span>
-                            <span>USDT</span>
+                    <div class="trust-item">
+                        <span class="trust-icon">▣</span>
+                        <div>
+                            <strong>یادگیری آسان</strong>
+                            <small>مناسب برای شروع</small>
                         </div>
-
-                    </article>
-
-
-                    <article class="coin-card" data-symbol="ETHUSDT">
-
-                        <div class="coin-card-top">
-                            <div class="coin-identity">
-                                <span class="coin-logo eth">◆</span>
-
-                                <div>
-                                    <strong>اتریوم</strong>
-                                    <small>ETH</small>
-                                </div>
-                            </div>
-
-                            <span class="coin-rank">02</span>
-                        </div>
-
-                        <div class="coin-card-price">
-                            <strong id="ethPrice">---</strong>
-                            <span id="ethChange">---</span>
-                        </div>
-
-                        <div class="coin-card-bottom">
-                            <span>Ethereum</span>
-                            <span>USDT</span>
-                        </div>
-
-                    </article>
-
-
-                    <article class="coin-card" data-symbol="BNBUSDT">
-
-                        <div class="coin-card-top">
-                            <div class="coin-identity">
-                                <span class="coin-logo bnb">◆</span>
-
-                                <div>
-                                    <strong>بایننس کوین</strong>
-                                    <small>BNB</small>
-                                </div>
-                            </div>
-
-                            <span class="coin-rank">03</span>
-                        </div>
-
-                        <div class="coin-card-price">
-                            <strong id="bnbPrice">---</strong>
-                            <span id="bnbChange">---</span>
-                        </div>
-
-                        <div class="coin-card-bottom">
-                            <span>BNB</span>
-                            <span>USDT</span>
-                        </div>
-
-                    </article>
-
-
-                    <article class="coin-card" data-symbol="SOLUSDT">
-
-                        <div class="coin-card-top">
-                            <div class="coin-identity">
-                                <span class="coin-logo sol">◎</span>
-
-                                <div>
-                                    <strong>سولانا</strong>
-                                    <small>SOL</small>
-                                </div>
-                            </div>
-
-                            <span class="coin-rank">04</span>
-                        </div>
-
-                        <div class="coin-card-price">
-                            <strong id="solPrice">---</strong>
-                            <span id="solChange">---</span>
-                        </div>
-
-                        <div class="coin-card-bottom">
-                            <span>Solana</span>
-                            <span>USDT</span>
-                        </div>
-
-                    </article>
-
-
-                    <article class="coin-card" data-symbol="XRPUSDT">
-
-                        <div class="coin-card-top">
-                            <div class="coin-identity">
-                                <span class="coin-logo xrp">✕</span>
-
-                                <div>
-                                    <strong>ریپل</strong>
-                                    <small>XRP</small>
-                                </div>
-                            </div>
-
-                            <span class="coin-rank">05</span>
-                        </div>
-
-                        <div class="coin-card-price">
-                            <strong id="xrpPrice">---</strong>
-                            <span id="xrpChange">---</span>
-                        </div>
-
-                        <div class="coin-card-bottom">
-                            <span>XRP</span>
-                            <span>USDT</span>
-                        </div>
-
-                    </article>
+                    </div>
 
                 </div>
 
@@ -370,7 +215,7 @@
         </section>
 
 
-        <!-- جدول بازار -->
+        <!-- بازار ارزها -->
         <section class="markets-section" id="markets">
 
             <div class="section-container">
@@ -378,35 +223,35 @@
                 <div class="section-heading">
 
                     <div>
-                        <span class="section-eyebrow">EXPLORE THE MARKET</span>
-                        <h2>بازار ارزهای دیجیتال</h2>
-                        <p>قیمت و وضعیت ارزهای دیجیتال رو بررسی کن.</p>
+                        <span class="section-label">CRYPTO MARKET</span>
+                        <h2>قیمت ارزهای دیجیتال</h2>
+                        <p>قیمت و تغییرات ارزهای دیجیتال رو بررسی کن.</p>
                     </div>
 
-                    <div class="market-live">
-                        <span class="status-dot"></span>
-                        اطلاعات بازار
-                    </div>
+                    <a href="#markets" class="view-all">
+                        مشاهده همه ارزها ←
+                    </a>
 
                 </div>
 
 
-                <div class="market-panel">
+                <div class="market-box">
 
                     <div class="market-toolbar">
 
                         <div class="market-tabs">
                             <button class="market-tab active" type="button">همه ارزها</button>
                             <button class="market-tab" type="button">برترین‌ها</button>
+                            <button class="market-tab" type="button">پرسودها</button>
+                            <button class="market-tab" type="button">پرضررها</button>
                         </div>
 
                         <div class="search-box">
                             <span>⌕</span>
-
                             <input
                                 type="search"
                                 id="marketSearch"
-                                placeholder="جستجوی نام یا نماد ارز..."
+                                placeholder="جستجوی ارز دیجیتال..."
                             >
                         </div>
 
@@ -421,7 +266,7 @@
                                 <tr>
                                     <th>نام ارز</th>
                                     <th>قیمت (USDT)</th>
-                                    <th>تغییر ۲۴ ساعته</th>
+                                    <th>تغییرات ۲۴ ساعت</th>
                                     <th>حجم معاملات</th>
                                     <th>وضعیت</th>
                                 </tr>
@@ -443,6 +288,7 @@
 
 
                     <div class="market-footer">
+
                         <span id="connectionStatus">
                             در انتظار اتصال به بازار
                         </span>
@@ -451,9 +297,10 @@
                             آخرین به‌روزرسانی: ---
                         </span>
 
-                        <button id="refreshButton" class="refresh-button" type="button">
+                        <button id="refreshButton" type="button">
                             ↻ بروزرسانی
                         </button>
+
                     </div>
 
                 </div>
@@ -463,45 +310,55 @@
         </section>
 
 
-        <!-- امکانات TradeLab -->
-        <section class="features-section" id="features">
+        <!-- شروع آسان -->
+        <section class="start-section" id="practice">
 
             <div class="section-container">
 
-                <div class="features-heading">
-                    <span class="section-eyebrow">WHY TRADELAB</span>
-                    <h2>معامله‌گری رو با خیال راحت یاد بگیر.</h2>
-
-                    <p>
-                        ابزارهایی که برای یادگیری و تمرین معامله‌گری نیاز داری.
-                    </p>
+                <div class="section-heading centered">
+                    <span class="section-label">START WITH TRADELAB</span>
+                    <h2>آسان شروع کن!</h2>
+                    <p>مسیر مناسب خودت رو برای آشنایی با بازار انتخاب کن.</p>
                 </div>
 
 
-                <div class="features-grid">
+                <div class="start-grid">
 
-                    <article class="feature-card">
-                        <div class="feature-icon blue">↗</div>
-                        <h3>قیمت‌های زنده بازار</h3>
+                    <article class="start-card">
+
+                        <div class="start-card-icon green">↗</div>
+
+                        <h3>محیط تمرینی</h3>
+
                         <p>
-                            قیمت ارزهای دیجیتال رو با اطلاعات بازار جهانی دنبال کن.
+                            با موجودی مجازی خرید و فروش آزمایشی انجام بده
+                            و با نحوه کار بازار آشنا شو.
                         </p>
+
+                        <a href="dashboard.html">
+                            ورود به محیط تمرینی
+                            <span>←</span>
+                        </a>
+
                     </article>
 
-                    <article class="feature-card">
-                        <div class="feature-icon green">◈</div>
-                        <h3>معاملات آزمایشی</h3>
-                        <p>
-                            با موجودی مجازی معامله کن و تجربه به دست بیار.
-                        </p>
-                    </article>
 
-                    <article class="feature-card">
-                        <div class="feature-icon purple">▥</div>
-                        <h3>تحلیل و بررسی</h3>
+                    <article class="start-card">
+
+                        <div class="start-card-icon blue">▥</div>
+
+                        <h3>بررسی بازار</h3>
+
                         <p>
-                            بازار رو بررسی کن و تصمیم‌های معاملاتی خودت رو ارزیابی کن.
+                            قیمت ارزهای دیجیتال رو دنبال کن،
+                            نمودارها رو ببین و تغییرات بازار رو بررسی کن.
                         </p>
+
+                        <a href="#markets">
+                            مشاهده بازار
+                            <span>←</span>
+                        </a>
+
                     </article>
 
                 </div>
@@ -511,28 +368,29 @@
         </section>
 
 
-        <!-- دعوت به شروع تمرین -->
-        <section class="practice-section" id="practice">
+        <!-- آموزش -->
+        <section class="learn-section" id="learn">
 
             <div class="section-container">
 
-                <div class="practice-box">
+                <div class="learn-content">
 
                     <div>
-                        <span class="section-eyebrow">START YOUR JOURNEY</span>
+                        <span class="section-label">LEARN CRYPTO</span>
 
                         <h2>
-                            آماده‌ای معامله‌گری رو
-                            <span>شروع کنی؟</span>
+                            قبل از معامله،
+                            <span>یاد بگیر!</span>
                         </h2>
 
                         <p>
-                            بدون استفاده از پول واقعی، تجربه کسب کن و مهارتت رو افزایش بده.
+                            با مفاهیم پایه بازار ارزهای دیجیتال آشنا شو
+                            و قدم‌به‌قدم تجربه کسب کن.
                         </p>
                     </div>
 
-                    <a href="dashboard.html" class="primary-button">
-                        ورود به محیط تمرینی
+                    <a href="#practice" class="primary-button">
+                        شروع یادگیری
                         <span>←</span>
                     </a>
 
@@ -542,11 +400,12 @@
 
         </section>
 
+
     </main>
 
 
     <!-- فوتر -->
-    <footer class="site-footer" id="about">
+    <footer class="site-footer">
 
         <div class="section-container">
 
@@ -554,13 +413,14 @@
 
                 <div class="footer-brand">
 
-                    <a href="#" class="brand">
-                        <span class="brand-icon">T.</span>
-                        <span class="brand-name">Trade<span>Lab</span></span>
+                    <a href="#home" class="brand">
+                        <span class="brand-icon">T</span>
+                        <span>Trade<span class="brand-highlight">Lab</span></span>
                     </a>
 
                     <p>
-                        محیطی برای یادگیری، تمرین و آشنایی با بازار ارزهای دیجیتال.
+                        TradeLab یک محیط آموزشی و تمرینی برای آشنایی
+                        با بازار ارزهای دیجیتال است.
                     </p>
 
                 </div>
@@ -569,23 +429,23 @@
                 <div class="footer-links">
                     <strong>دسترسی سریع</strong>
                     <a href="#home">صفحه اصلی</a>
-                    <a href="#markets">بازار ارزها</a>
+                    <a href="#markets">قیمت ارزها</a>
                     <a href="#features">امکانات</a>
                 </div>
 
 
                 <div class="footer-links">
-                    <strong>TradeLab</strong>
+                    <strong>یادگیری</strong>
+                    <a href="#learn">آموزش</a>
                     <a href="#practice">محیط تمرینی</a>
-                    <a href="#about">درباره ما</a>
                 </div>
 
             </div>
 
 
             <div class="footer-bottom">
-                <span>© 2026 TradeLab. All rights reserved.</span>
-                <span>ساخته‌شده برای یادگیری معامله‌گری</span>
+                <span>© 2026 TradeLab</span>
+                <span>ساخته‌شده برای یادگیری و تمرین</span>
             </div>
 
         </div>
@@ -596,4 +456,4 @@
     <script src="js/app.js"></script>
 
 </body>
-    </html>
+            </html>

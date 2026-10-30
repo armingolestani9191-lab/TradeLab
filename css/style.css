@@ -1,20 +1,25 @@
-/* ========================================
-   تنظیمات پایه
-======================================== */
+/* =========================================
+   تنظیمات اصلی TradeLab
+========================================= */
 
 :root {
     --bg: #080d19;
-    --bg-light: #0d1525;
-    --card: #111c2e;
-    --card-hover: #16243a;
-    --border: #202d42;
-    --blue: #3185ff;
-    --blue-light: #58a6ff;
-    --text: #f0f4fc;
-    --muted: #8492a8;
-    --green: #19c98b;
-    --red: #f05b6b;
-    --radius: 16px;
+    --bg-secondary: #0c1423;
+    --surface: #101b2d;
+    --surface-light: #15243a;
+    --border: rgba(150, 175, 210, 0.12);
+
+    --blue: #398cff;
+    --blue-light: #66a8ff;
+    --green: #16c784;
+    --red: #ea5b6b;
+    --purple: #9b7cff;
+
+    --text: #f3f6fc;
+    --muted: #8b9ab2;
+
+    --radius: 18px;
+    --transition: 0.25s ease;
 }
 
 * {
@@ -25,602 +30,833 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
     font-family: "Vazirmatn", sans-serif;
     background: var(--bg);
     color: var(--text);
-    min-height: 100vh;
-    direction: rtl;
+    overflow-x: hidden;
+    line-height: 1.8;
 }
 
 button,
 input {
-    font-family: inherit;
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 button {
     cursor: pointer;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+::selection {
+    background: rgba(57, 140, 255, 0.3);
+    color: white;
 }
 
-/* ========================================
-   ساختار اصلی
-======================================== */
-
-.app-container {
-    display: flex;
-    min-height: 100vh;
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-/* ========================================
-   منوی کناری
-======================================== */
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
 
-.sidebar {
-    width: 250px;
-    background: #0c1423;
-    border-left: 1px solid var(--border);
-    padding: 28px 18px;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    position: fixed;
-    right: 0;
+::-webkit-scrollbar-thumb {
+    background: #263852;
+    border-radius: 20px;
+}
+
+.section-container {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   هدر سایت
+========================================= */
+
+.site-header {
+    width: 100%;
+    height: 82px;
+    position: sticky;
     top: 0;
-    bottom: 0;
-    z-index: 100;
+    z-index: 1000;
+    background: rgba(8, 13, 25, 0.86);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+    width: min(1350px, calc(100% - 48px));
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 0 8px;
-    margin-bottom: 55px;
-}
-
-.brand-logo {
-    width: 43px;
-    height: 43px;
-    border-radius: 13px;
-    background: linear-gradient(135deg, #3185ff, #1452bd);
-    display: grid;
-    place-items: center;
-    font-size: 25px;
-    font-weight: 800;
-    box-shadow: 0 5px 20px #3185ff40;
-}
-
-.brand-logo span {
-    color: #a8d5ff;
-}
-
-.brand-name h2 {
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.brand-name span {
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 1.5px;
-}
-
-.menu-title {
-    color: #62718a;
-    font-size: 11px;
-    padding: 0 12px;
-    margin-bottom: 15px;
-}
-
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    padding: 13px 14px;
-    border-radius: 11px;
-    color: #9ba9bd;
-    font-size: 13px;
-    transition: 0.25s;
-}
-
-.menu-item span {
-    font-size: 19px;
-    width: 23px;
-    text-align: center;
-}
-
-.menu-item:hover {
-    background: #17243a;
-    color: white;
-}
-
-.menu-item.active {
-    background: linear-gradient(90deg, #1a3762, #142b4b);
-    color: #69adff;
-    border: 1px solid #2862a555;
-}
-
-.sidebar-bottom {
-    margin-top: auto;
-}
-
-.demo-box {
-    background: linear-gradient(145deg, #142b4b, #101d32);
-    border: 1px solid #27476e;
-    padding: 17px;
-    border-radius: 13px;
-    margin-bottom: 22px;
-}
-
-.demo-box > span {
-    color: #63aaff;
-    font-size: 22px;
-}
-
-.demo-box h3 {
-    font-size: 13px;
-    margin: 9px 0;
-}
-
-.demo-box p {
-    color: #91a6c1;
-    font-size: 10px;
-    line-height: 2;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
     gap: 11px;
-    border-top: 1px solid var(--border);
-    padding-top: 18px;
-}
-
-.user-avatar,
-.top-avatar {
-    width: 38px;
-    height: 38px;
-    background: linear-gradient(135deg, #2879e7, #1746a0);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-weight: 700;
-}
-
-.user-profile strong {
-    display: block;
-    font-size: 11px;
-}
-
-.user-profile small {
-    color: var(--muted);
-    font-size: 9px;
-}
-
-/* ========================================
-   محتوای اصلی
-======================================== */
-
-.main-content {
-    width: calc(100% - 250px);
-    margin-right: 250px;
-    padding: 0 35px;
-    max-width: 1700px;
-}
-
-/* ========================================
-   نوار بالایی
-======================================== */
-
-.topbar {
-    height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-}
-
-.page-title {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 12px;
-    color: var(--muted);
-}
-
-.page-title .separator {
-    color: #45536a;
-}
-
-.page-title strong {
-    color: var(--text);
-}
-
-.topbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.connection-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    display: inline-block;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 10px #19c98b80;
-}
-
-.icon-button {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text);
-    font-size: 22px;
-    transition: 0.2s;
-}
-
-.icon-button:hover {
-    background: var(--blue);
-    border-color: var(--blue);
-    transform: rotate(90deg);
-}
-
-.top-avatar {
-    width: 34px;
-    height: 34px;
-    font-size: 13px;
-}
-
-/* ========================================
-   بخش خوش‌آمدگویی
-======================================== */
-
-.welcome-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 38px 0 30px;
-    padding: 27px 30px;
-    border-radius: var(--radius);
-    background:
-        radial-gradient(circle at 10% 50%, #1e579d35, transparent 35%),
-        linear-gradient(120deg, #14243b, #101a2b);
-    border: 1px solid #263d5d;
-    position: relative;
-    overflow: hidden;
-}
-
-.welcome-section::after {
-    content: "";
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border: 1px solid #398aff18;
-    border-radius: 50%;
-    left: -70px;
-    top: -100px;
-}
-
-.section-label {
-    color: #60a9ff;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.4px;
-}
-
-.welcome-section h1 {
-    font-size: 25px;
-    margin: 12px 0 8px;
-    font-weight: 800;
-}
-
-.welcome-section h1 span {
-    color: #5da7ff;
-}
-
-.welcome-section p {
-    color: #91a2b9;
-    font-size: 12px;
-}
-
-.demo-label {
-    background: #1e3d63;
-    border: 1px solid #35679c;
-    color: #7dbaff;
-    padding: 10px 16px;
-    border-radius: 30px;
-    font-size: 11px;
-    white-space: nowrap;
-}
-
-/* ========================================
-   کارت‌های آماری
-======================================== */
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-bottom: 25px;
-}
-
-.stat-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 22px;
-    border-radius: var(--radius);
-    transition: 0.25s;
-}
-
-.stat-card:hover {
-    border-color: #3567a3;
-    transform: translateY(-3px);
-}
-
-.stat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.stat-icon {
-    width: 34px;
-    height: 34px;
-    background: #1d3555;
-    color: #6bb1ff;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    font-size: 18px;
-}
-
-.stat-card h2 {
-    font-size: 25px;
-    direction: ltr;
-    text-align: right;
-    margin: 18px 0 8px;
-    font-weight: 800;
-}
-
-.stat-card .positive {
-    color: var(--green);
-}
-
-.stat-description {
-    color: #71829b;
-    font-size: 10px;
-}
-
-/* ========================================
-   کارت‌های محتوا
-======================================== */
-
-.content-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-bottom: 22px;
-}
-
-.section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 25px;
-}
-
-.section-header h2 {
-    font-size: 17px;
-    margin-top: 7px;
-}
-
-.section-header p {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 7px;
-}
-
-.market-badge {
-    color: #6fb5ff;
-    background: #183452;
-    padding: 8px 13px;
-    border-radius: 8px;
-    font-size: 10px;
-}
-
-/* ========================================
-   ارزهای منتخب
-======================================== */
-
-.featured-coins {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 13px;
-    margin-bottom: 30px;
-}
-
-.featured-coin {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    background: #0c1627;
-    border: 1px solid #1e2e45;
-    padding: 15px;
-    border-radius: 12px;
-    min-width: 0;
-}
-
-.coin-icon {
-    width: 37px;
-    height: 37px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    font-size: 20px;
     flex-shrink: 0;
 }
 
-.coin-icon.btc {
-    background: #513a20;
-    color: #ffb64b;
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #398cff, #1760d4);
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+    box-shadow: 0 5px 22px rgba(57, 140, 255, 0.25);
 }
 
-.coin-icon.eth {
-    background: #27345d;
-    color: #a3b5ff;
+.brand-name {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-.coin-icon.sol {
-    background: #24433e;
-    color: #5de6bc;
+.brand-name span {
+    color: var(--blue-light);
 }
 
-.featured-coin div {
-    min-width: 0;
-    flex: 1;
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
 }
 
-.featured-coin small {
-    display: block;
+.main-nav a {
     color: var(--muted);
-    font-size: 10px;
-    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
 }
 
-.featured-coin strong {
-    display: block;
+.main-nav a:hover,
+.main-nav a.active {
+    color: white;
+}
+
+.main-nav a.active::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--blue);
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.market-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
     font-size: 12px;
-    direction: ltr;
-    text-align: right;
-    white-space: nowrap;
 }
 
-.featured-coin > span:last-child {
+.status-dot,
+.market-live .status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(22, 199, 132, 0.6);
+}
+
+.header-button {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 11px 18px;
+    border-radius: 11px;
+    background: var(--blue);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.header-button:hover {
+    background: #2878ed;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(57, 140, 255, 0.2);
+}
+
+.header-button span {
+    font-size: 18px;
+}
+
+.mobile-menu-button {
+    display: none;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: white;
+    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+}
+
+
+/* =========================================
+   بخش معرفی اصلی
+========================================= */
+
+.hero-section {
+    position: relative;
+    padding: 100px 0 110px;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    width: 750px;
+    height: 750px;
+    top: -300px;
+    left: -220px;
+    background: radial-gradient(
+        circle,
+        rgba(40, 105, 210, 0.15),
+        transparent 68%
+    );
+    pointer-events: none;
+}
+
+.hero-container {
+    width: min(1200px, calc(100% - 48px));
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    animation: fadeUp 0.8s ease both;
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 13px;
+    border: 1px solid rgba(57, 140, 255, 0.2);
+    background: rgba(57, 140, 255, 0.08);
+    border-radius: 30px;
+    color: var(--blue-light);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.hero-label-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--blue);
+}
+
+.hero-content h1 {
+    font-size: clamp(35px, 4.5vw, 58px);
+    line-height: 1.5;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--blue-light);
+}
+
+.hero-content > p {
+    max-width: 510px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2.2;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.primary-button {
+    background: var(--blue);
+    color: white;
+    box-shadow: 0 8px 25px rgba(57, 140, 255, 0.18);
+}
+
+.primary-button:hover {
+    background: #2678ed;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(57, 140, 255, 0.3);
+}
+
+.primary-button span {
+    font-size: 19px;
+}
+
+.secondary-button {
+    border: 1px solid var(--border);
+    color: #dce6f5;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.secondary-button:hover {
+    border-color: var(--blue);
+    background: rgba(57, 140, 255, 0.08);
+}
+
+.hero-features {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 32px;
+}
+
+.hero-features div {
+    color: var(--muted);
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.feature-check {
     color: var(--green);
-    font-size: 10px;
-    direction: ltr;
-    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 800;
 }
 
-/* ========================================
-   جستجوی بازار
-======================================== */
 
-.market-toolbar {
+/* =========================================
+   کارت نمایشی بازار
+========================================= */
+
+.hero-visual {
+    position: relative;
+    animation: fadeUp 1s ease both;
+}
+
+.visual-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(40, 105, 210, 0.15);
+    filter: blur(100px);
+    border-radius: 50%;
+    top: 0;
+    left: 10%;
+}
+
+.market-preview {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(145deg, #15243a, #0c1628);
+    border: 1px solid rgba(125, 160, 210, 0.17);
+    border-radius: 22px;
+    padding: 27px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.preview-header,
+.preview-main-coin,
+.preview-coin-info,
+.preview-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
+}
+
+.preview-caption {
+    color: var(--blue-light);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.preview-header h3 {
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+.preview-live {
+    color: var(--green);
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    direction: ltr;
+}
+
+.preview-live span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+}
+
+.preview-main-coin {
+    margin-top: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.preview-coin-info {
+    justify-content: flex-start;
+    gap: 13px;
+}
+
+.preview-coin-info strong,
+.preview-coin-info small {
+    display: block;
+}
+
+.preview-coin-info strong {
+    font-size: 15px;
+}
+
+.preview-coin-info small {
+    color: var(--muted);
+    font-size: 11px;
+    direction: ltr;
+    text-align: right;
+}
+
+.preview-coin-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.preview-price {
+    text-align: left;
+    direction: ltr;
+}
+
+.preview-price strong {
+    display: block;
+    font-size: 20px;
+}
+
+.preview-price span {
+    display: block;
+    font-size: 11px;
+    color: var(--green);
+}
+
+.preview-chart {
+    padding-top: 24px;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 10px;
     margin-bottom: 15px;
 }
 
-.market-toolbar h3 {
-    font-size: 13px;
+.chart-svg {
+    display: block;
+    width: 100%;
+    height: 145px;
+    overflow: visible;
 }
 
-.market-toolbar input {
-    width: 250px;
-    max-width: 100%;
-    background: #0a1423;
+.preview-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 17px;
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 9px;
+}
+
+
+/* =========================================
+   ارزهای منتخب
+========================================= */
+
+.top-coins-section {
+    padding: 35px 0 90px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 20px;
+}
+
+.section-eyebrow {
+    display: block;
+    color: var(--blue-light);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.section-heading h2,
+.features-heading h2 {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.view-all {
+    color: var(--blue-light);
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.view-all:hover {
+    gap: 15px;
+}
+
+.view-all span {
+    font-size: 18px;
+}
+
+.top-coins-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.coin-card {
+    padding: 20px 17px;
+    background: var(--surface);
     border: 1px solid var(--border);
-    color: white;
-    padding: 11px 14px;
-    border-radius: 9px;
-    outline: none;
+    border-radius: 16px;
+    transition: var(--transition);
+    min-width: 0;
+}
+
+.coin-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(57, 140, 255, 0.4);
+    background: var(--surface-light);
+}
+
+.coin-card-top,
+.coin-identity {
+    display: flex;
+    align-items: center;
+}
+
+.coin-card-top {
+    justify-content: space-between;
+}
+
+.coin-identity {
+    gap: 10px;
+}
+
+.coin-logo {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.btc {
+    color: #f7931a;
+    background: rgba(247, 147, 26, 0.13);
+}
+
+.eth {
+    color: #9aa9ff;
+    background: rgba(120, 140, 255, 0.13);
+}
+
+.bnb {
+    color: #f3ba2f;
+    background: rgba(243, 186, 47, 0.13);
+}
+
+.sol {
+    color: #b18cff;
+    background: rgba(153, 110, 255, 0.13);
+}
+
+.xrp {
+    color: #d9e4f5;
+    background: rgba(217, 228, 245, 0.1);
+}
+
+.coin-identity strong,
+.coin-identity small {
+    display: block;
+}
+
+.coin-identity strong {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.coin-identity small {
+    font-size: 10px;
+    color: var(--muted);
+    direction: ltr;
+    text-align: right;
+}
+
+.coin-rank {
     font-size: 11px;
-    transition: 0.2s;
+    color: #64748b;
+    direction: ltr;
 }
 
-.market-toolbar input:focus {
+.coin-card-price {
+    margin-top: 25px;
+    direction: ltr;
+    text-align: left;
+}
+
+.coin-card-price strong {
+    display: block;
+    font-size: 19px;
+    white-space: nowrap;
+}
+
+.coin-card-price span {
+    display: inline-block;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.positive {
+    color: var(--green) !important;
+}
+
+.negative {
+    color: var(--red) !important;
+}
+
+.coin-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 9px;
+}
+
+
+/* =========================================
+   بخش بازار
+========================================= */
+
+.markets-section {
+    padding: 75px 0 95px;
+    background: #0b1321;
+    border-top: 1px solid rgba(150, 175, 210, 0.06);
+    border-bottom: 1px solid rgba(150, 175, 210, 0.06);
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.market-live {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.market-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    overflow: hidden;
+}
+
+.market-toolbar {
+    min-height: 83px;
+    padding: 17px 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.market-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.market-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted);
+    border-radius: 9px;
+    padding: 9px 16px;
+    font-size: 11px;
+    transition: var(--transition);
+}
+
+.market-tab:hover,
+.market-tab.active {
+    color: white;
+    background: rgba(57, 140, 255, 0.12);
+    border-color: rgba(57, 140, 255, 0.2);
+}
+
+.search-box {
+    width: 270px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 13px;
+    background: #0b1423;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.search-box:focus-within {
     border-color: var(--blue);
-    box-shadow: 0 0 0 3px #3185ff18;
 }
 
-.market-toolbar input::placeholder {
-    color: #62718a;
+.search-box span {
+    color: var(--muted);
+    font-size: 22px;
+    line-height: 1;
 }
 
-/* ========================================
-   جدول بازار
-======================================== */
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 11px;
+}
 
-.table-container {
+.search-box input::placeholder {
+    color: #687990;
+}
+
+.market-table-wrapper {
     width: 100%;
     overflow-x: auto;
 }
 
-table {
+.market-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 650px;
-}
-
-thead {
-    background: #0c1626;
-}
-
-th {
-    color: #8191a8;
-    font-size: 10px;
-    font-weight: 500;
-    padding: 15px 13px;
-    text-align: right;
     white-space: nowrap;
 }
 
-td {
-    padding: 17px 13px;
-    border-bottom: 1px solid #1c2a3d;
+.market-table thead {
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.market-table th {
+    color: var(--muted);
     font-size: 11px;
-    color: #d5deeb;
-    white-space: nowrap;
+    font-weight: 500;
+    text-align: right;
+    padding: 18px 22px;
 }
 
-tbody tr {
-    transition: 0.2s;
+.market-table td {
+    padding: 19px 22px;
+    font-size: 12px;
+    border-top: 1px solid var(--border);
 }
 
-tbody tr:hover {
-    background: #18263a;
+.market-table tbody tr {
+    transition: background var(--transition);
 }
 
-tbody tr:last-child td {
-    border-bottom: none;
+.market-table tbody tr:hover {
+    background: rgba(57, 140, 255, 0.045);
+}
+
+.market-table .loading-cell {
+    text-align: center;
+    color: var(--muted);
+    padding: 45px 20px;
 }
 
 .market-footer {
+    padding: 17px 22px;
+    border-top: 1px solid var(--border);
     display: flex;
     align-items: center;
-    gap: 9px;
-    margin-top: 18px;
+    gap: 10px;
     color: var(--muted);
     font-size: 10px;
 }
@@ -629,317 +865,382 @@ tbody tr:last-child td {
     margin-right: auto;
 }
 
-/* ========================================
-   سبد دارایی و سفارش‌ها
-======================================== */
+.refresh-button {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--blue-light);
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-size: 10px;
+    transition: var(--transition);
+}
 
-.bottom-grid {
+.refresh-button:hover {
+    background: rgba(57, 140, 255, 0.1);
+    border-color: var(--blue);
+}
+
+
+/* =========================================
+   امکانات
+========================================= */
+
+.features-section {
+    padding: 100px 0;
+}
+
+.features-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.features-heading h2 {
+    font-size: 29px;
+}
+
+.features-heading p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.features-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.bottom-grid .content-card {
-    margin-bottom: 0;
+.feature-card {
+    padding: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    transition: var(--transition);
 }
 
-.empty-state {
-    min-height: 155px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(57, 140, 255, 0.35);
 }
 
-.empty-icon {
+.feature-icon {
     width: 48px;
     height: 48px;
-    display: grid;
-    place-items: center;
-    background: #1a2c45;
-    color: #6caeff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 14px;
     font-size: 25px;
-    margin-bottom: 13px;
+    margin-bottom: 22px;
 }
 
-.empty-state h3 {
-    font-size: 12px;
-    margin-bottom: 8px;
+.feature-icon.blue {
+    background: rgba(57, 140, 255, 0.13);
+    color: var(--blue-light);
 }
 
-.empty-state p {
+.feature-icon.green {
+    background: rgba(22, 199, 132, 0.12);
+    color: var(--green);
+}
+
+.feature-icon.purple {
+    background: rgba(155, 124, 255, 0.13);
+    color: var(--purple);
+}
+
+.feature-card h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
     color: var(--muted);
-    font-size: 10px;
-    line-height: 2;
+    font-size: 11px;
+    line-height: 2.2;
 }
 
-/* ========================================
-   فوتر
-======================================== */
 
-.footer {
+/* =========================================
+   دعوت به تمرین
+========================================= */
+
+.practice-section {
+    padding: 20px 0 100px;
+}
+
+.practice-box {
+    padding: 48px;
+    border-radius: 22px;
+    border: 1px solid rgba(57, 140, 255, 0.2);
+    background:
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(57, 140, 255, 0.16),
+            transparent 40%
+        ),
+        linear-gradient(120deg, #12223a, #0e192b);
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    gap: 15px;
-    color: #63728a;
-    font-size: 10px;
-    padding: 25px 0;
-    margin-top: 20px;
+    gap: 25px;
+}
+
+.practice-box h2 {
+    font-size: 27px;
+    line-height: 1.8;
+}
+
+.practice-box h2 span {
+    color: var(--blue-light);
+}
+
+.practice-box p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+
+/* =========================================
+   فوتر
+========================================= */
+
+.site-footer {
+    padding: 65px 0 25px;
+    background: #070c16;
     border-top: 1px solid var(--border);
 }
 
-/* ========================================
-   اسکرول‌بار
-======================================== */
-
-::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 45px;
 }
 
-::-webkit-scrollbar-track {
-    background: #0a1220;
+.footer-brand p {
+    max-width: 320px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 2.2;
+    margin-top: 18px;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #2a3c56;
-    border-radius: 10px;
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #42699a;
+.footer-links strong {
+    font-size: 13px;
+    margin-bottom: 5px;
 }
 
-/* ========================================
-   نمایشگرهای متوسط
-======================================== */
-
-@media (max-width: 1100px) {
-    .sidebar {
-        width: 215px;
-    }
-
-    .main-content {
-        width: calc(100% - 215px);
-        margin-right: 215px;
-        padding: 0 22px;
-    }
-
-    .stats-grid {
-        gap: 12px;
-    }
-
-    .stat-card {
-        padding: 17px;
-    }
-
-    .stat-card h2 {
-        font-size: 21px;
-    }
-
-    .featured-coin {
-        padding: 12px 9px;
-        gap: 7px;
-    }
+.footer-links a {
+    color: var(--muted);
+    font-size: 11px;
+    transition: var(--transition);
 }
 
-/* ========================================
-   تبلت
-======================================== */
+.footer-links a:hover {
+    color: var(--blue-light);
+}
 
-@media (max-width: 800px) {
-    .sidebar {
-        width: 75px;
-        padding: 22px 10px;
-        align-items: center;
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    color: #65748b;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   انیمیشن‌ها
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
     }
 
-    .brand {
-        padding: 0;
-        margin-bottom: 45px;
-    }
-
-    .brand-name,
-    .menu-title,
-    .menu-item:not(.active)::after,
-    .menu-item {
-        font-size: 0;
-    }
-
-    .brand-name {
-        display: none;
-    }
-
-    .sidebar-menu {
-        width: 100%;
-    }
-
-    .menu-item {
-        justify-content: center;
-        padding: 13px 5px;
-    }
-
-    .menu-item span {
-        font-size: 21px;
-    }
-
-    .demo-box,
-    .user-profile > div:last-child {
-        display: none;
-    }
-
-    .user-profile {
-        justify-content: center;
-    }
-
-    .main-content {
-        width: calc(100% - 75px);
-        margin-right: 75px;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .stats-grid .stat-card:last-child {
-        grid-column: span 2;
-    }
-
-    .bottom-grid {
-        grid-template-columns: 1fr;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* ========================================
-   موبایل
-======================================== */
-
-@media (max-width: 550px) {
-    .sidebar {
-        width: 58px;
-        padding: 18px 7px;
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(22, 199, 132, 0.4);
     }
 
-    .brand-logo {
+    70% {
+        box-shadow: 0 0 0 8px rgba(22, 199, 132, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(22, 199, 132, 0);
+    }
+}
+
+.status-dot {
+    animation: pulse 2s infinite;
+}
+
+
+/* =========================================
+   واکنش‌گرایی تبلت
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .header-container {
+        gap: 20px;
+    }
+
+    .main-nav {
+        gap: 19px;
+    }
+
+    .hero-container {
+        gap: 40px;
+    }
+
+    .top-coins-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .coin-card:last-child {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================================
+   واکنش‌گرایی موبایل
+========================================= */
+
+@media (max-width: 768px) {
+
+    .section-container,
+    .hero-container {
+        width: min(100% - 32px, 600px);
+    }
+
+    .site-header {
+        height: 70px;
+    }
+
+    .header-container {
+        width: calc(100% - 32px);
+    }
+
+    .brand-icon {
         width: 39px;
         height: 39px;
         font-size: 22px;
     }
 
-    .main-content {
-        width: calc(100% - 58px);
-        margin-right: 58px;
-        padding: 0 12px;
+    .brand-name {
+        font-size: 20px;
     }
 
-    .topbar {
-        height: 62px;
-    }
-
-    .page-title {
-        font-size: 10px;
-        gap: 6px;
-    }
-
-    .topbar-actions {
-        gap: 9px;
-    }
-
-    .connection-status {
-        font-size: 9px;
-        gap: 5px;
-    }
-
-    .icon-button {
-        width: 31px;
-        height: 31px;
-        font-size: 19px;
-    }
-
-    .top-avatar {
-        width: 29px;
-        height: 29px;
-        font-size: 11px;
-    }
-
-    .welcome-section {
-        margin: 22px 0 18px;
-        padding: 20px 16px;
-        align-items: flex-start;
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        left: 0;
+        padding: 20px;
+        background: #0d1728;
+        border-bottom: 1px solid var(--border);
         flex-direction: column;
-        gap: 17px;
+        align-items: stretch;
+        gap: 0;
     }
 
-    .welcome-section h1 {
-        font-size: 19px;
-        line-height: 1.8;
+    .main-nav.show {
+        display: flex;
     }
 
-    .welcome-section p {
+    .main-nav a {
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .main-nav a.active::after {
+        display: none;
+    }
+
+    .main-nav a:hover {
+        background: var(--surface-light);
+    }
+
+    .header-actions {
+        margin-right: auto;
+        gap: 10px;
+    }
+
+    .market-status {
+        display: none;
+    }
+
+    .header-button {
+        padding: 9px 12px;
         font-size: 10px;
-        line-height: 2;
     }
 
-    .demo-label {
-        font-size: 9px;
-        padding: 7px 11px;
+    .mobile-menu-button {
+        display: block;
     }
 
-    .stats-grid {
-        gap: 9px;
+    .hero-section {
+        padding: 65px 0 75px;
     }
 
-    .stat-card {
-        padding: 13px;
-        border-radius: 12px;
-    }
-
-    .stat-header {
-        font-size: 10px;
-    }
-
-    .stat-icon {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-    }
-
-    .stat-card h2 {
-        font-size: 17px;
-        margin: 13px 0 6px;
-    }
-
-    .stat-description {
-        font-size: 8px;
-    }
-
-    .content-card {
-        padding: 15px 12px;
-        border-radius: 13px;
-    }
-
-    .section-header {
-        margin-bottom: 17px;
-    }
-
-    .section-header h2 {
-        font-size: 14px;
-    }
-
-    .section-header p {
-        font-size: 9px;
-    }
-
-    .featured-coins {
+    .hero-container {
         grid-template-columns: 1fr;
-        gap: 8px;
-        margin-bottom: 22px;
+        gap: 55px;
     }
 
-    .featured-coin {
-        padding: 11px;
+    .hero-content h1 {
+        font-size: 39px;
+    }
+
+    .hero-content > p {
+        font-size: 13px;
+    }
+
+    .hero-visual {
+        max-width: 520px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .market-preview {
+        padding: 20px;
+    }
+
+    .top-coins-section {
+        padding: 25px 0 65px;
+    }
+
+    .top-coins-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .markets-section {
+        padding: 65px 0;
     }
 
     .market-toolbar {
@@ -947,41 +1248,129 @@ tbody tr:last-child td {
         flex-direction: column;
     }
 
-    .market-toolbar input {
+    .search-box {
         width: 100%;
     }
 
-    .market-badge {
-        font-size: 8px;
-        padding: 6px 9px;
+    .market-table {
+        min-width: 700px;
     }
 
-    .bottom-grid {
-        gap: 12px;
+    .features-section {
+        padding: 70px 0;
     }
 
-    .footer {
-        font-size: 8px;
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    .features-heading h2 {
+        font-size: 23px;
+    }
+
+    .practice-box {
+        padding: 30px 23px;
+        align-items: flex-start;
         flex-direction: column;
-        text-align: center;
-        padding: 18px 0;
     }
+
+    .practice-box h2 {
+        font-size: 23px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+
 }
 
-/* ========================================
-   نمایشگرهای خیلی کوچک
-======================================== */
 
-@media (max-width: 360px) {
-    .connection-status {
-        display: none;
+/* =========================================
+   موبایل کوچک
+========================================= */
+
+@media (max-width: 420px) {
+
+    .hero-content h1 {
+        font-size: 33px;
+        letter-spacing: -1px;
     }
 
-    .welcome-section h1 {
-        font-size: 17px;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .stat-card h2 {
-        font-size: 15px;
+    .primary-button,
+    .secondary-button {
+        width: 100%;
     }
+
+    .hero-features {
+        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-coins-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .coin-card {
+        padding: 17px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .market-footer {
+        flex-wrap: wrap;
+    }
+
+    .market-footer #lastUpdated {
+        margin-right: 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
 }
+
+
+/* =========================================
+   کاهش حرکت برای تنظیمات دسترس‌پذیری
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+   }

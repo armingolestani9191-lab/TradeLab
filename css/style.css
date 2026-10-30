@@ -1,21 +1,25 @@
 /* =====================================
-   تنظیمات اصلی
+   TradeLab - Dark Exchange UI
 ===================================== */
 
 :root {
-    --green: #16a36a;
-    --green-dark: #087b4c;
-    --green-light: #e9f8f1;
+    --bg: #080b0a;
+    --bg-soft: #0d1210;
+    --surface: #111815;
+    --surface-2: #151e19;
+    --surface-3: #1b2720;
 
-    --blue: #2878e8;
-    --text: #202832;
-    --muted: #858d98;
+    --green: #00d68f;
+    --green-dark: #00a96e;
+    --green-soft: rgba(0, 214, 143, .10);
 
-    --background: #ffffff;
-    --surface: #f8f9fb;
-    --border: #edf0f2;
+    --red: #ff5964;
 
-    --radius: 16px;
+    --text: #f0f5f2;
+    --muted: #89978f;
+    --border: #202b25;
+
+    --radius: 15px;
     --transition: .25s ease;
 }
 
@@ -27,12 +31,12 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 90px;
 }
 
 body {
     font-family: "Vazirmatn", sans-serif;
-    background: var(--background);
+    background: var(--bg);
     color: var(--text);
     line-height: 1.9;
     overflow-x: hidden;
@@ -58,11 +62,12 @@ a {
 }
 
 ::selection {
-    background: #c9f0dc;
+    background: var(--green);
+    color: #000;
 }
 
 .section-container {
-    width: min(1200px, calc(100% - 48px));
+    width: min(1250px, calc(100% - 40px));
     margin: auto;
 }
 
@@ -72,16 +77,19 @@ a {
 ===================================== */
 
 .site-header {
-    height: 78px;
-    background: #fff;
+    height: 76px;
+    background: rgba(8, 11, 10, .96);
     border-bottom: 1px solid var(--border);
+
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    backdrop-filter: blur(15px);
 }
 
 .header-container {
-    width: min(1350px, calc(100% - 48px));
+    width: min(1350px, calc(100% - 40px));
     height: 100%;
     margin: auto;
 
@@ -104,17 +112,20 @@ a {
 .brand-icon {
     width: 42px;
     height: 42px;
-    border-radius: 13px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: #fff;
-    background: linear-gradient(135deg, #20b779, #07824f);
+    border-radius: 12px;
+
+    color: #001b12;
+    background: var(--green);
 
     font-size: 25px;
     font-weight: 900;
+
+    box-shadow: 0 0 22px rgba(0, 214, 143, .18);
 }
 
 .brand-highlight {
@@ -128,9 +139,10 @@ a {
 }
 
 .main-nav a {
+    color: var(--muted);
     font-size: 13px;
     font-weight: 600;
-    color: #646c75;
+
     transition: var(--transition);
 }
 
@@ -144,20 +156,20 @@ a {
     align-items: center;
     justify-content: center;
 
-    padding: 11px 19px;
+    padding: 10px 19px;
     border-radius: 10px;
 
-    color: #fff;
+    color: #001b12;
     background: var(--green);
 
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
 
     transition: var(--transition);
 }
 
 .login-button:hover {
-    background: var(--green-dark);
+    background: #35e9ae;
     transform: translateY(-2px);
 }
 
@@ -170,7 +182,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 10px;
 
-    background: #fff;
+    background: var(--surface);
     color: var(--text);
 
     font-size: 21px;
@@ -186,26 +198,26 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 13px;
 
-    padding: 13px 23px;
-    border-radius: 11px;
+    padding: 13px 24px;
+    border-radius: 10px;
 
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
 
     transition: var(--transition);
 }
 
 .primary-button {
-    color: #fff;
+    color: #001b12;
     background: var(--green);
 
-    box-shadow: 0 7px 20px rgba(22, 163, 106, .15);
+    box-shadow: 0 5px 25px rgba(0, 214, 143, .12);
 }
 
 .primary-button:hover {
-    background: var(--green-dark);
+    background: #36e9ad;
     transform: translateY(-3px);
 }
 
@@ -214,9 +226,10 @@ a {
 }
 
 .secondary-button {
-    color: #4c5661;
-    background: #fff;
-    border: 1px solid #e5e9ed;
+    color: var(--text);
+    background: var(--surface);
+
+    border: 1px solid var(--border);
 }
 
 .secondary-button:hover {
@@ -230,28 +243,28 @@ a {
 ===================================== */
 
 .hero-section {
-    padding: 95px 0 100px;
+    padding: 90px 0 100px;
 
     background:
         radial-gradient(
-            circle at 10% 30%,
-            rgba(22, 163, 106, .06),
+            circle at 15% 40%,
+            rgba(0, 214, 143, .09),
             transparent 35%
         ),
-        linear-gradient(180deg, #fff, #fbfdfc);
+        linear-gradient(180deg, #080b0a, #0b100d);
 
     overflow: hidden;
 }
 
 .hero-container {
-    width: min(1200px, calc(100% - 48px));
+    width: min(1200px, calc(100% - 40px));
     margin: auto;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
 
-    gap: 75px;
+    gap: 65px;
 }
 
 .hero-content {
@@ -262,11 +275,12 @@ a {
     display: inline-flex;
     align-items: center;
 
-    padding: 7px 14px;
+    padding: 7px 15px;
     border-radius: 30px;
 
     color: var(--green);
-    background: var(--green-light);
+    background: var(--green-soft);
+    border: 1px solid rgba(0, 214, 143, .16);
 
     font-size: 12px;
     font-weight: 700;
@@ -275,10 +289,10 @@ a {
 }
 
 .hero-content h1 {
-    font-size: clamp(35px, 4vw, 53px);
+    font-size: clamp(35px, 4vw, 52px);
     line-height: 1.65;
     font-weight: 900;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
 }
 
 .hero-content h1 span {
@@ -291,9 +305,9 @@ a {
 
     margin-top: 18px;
 
-    color: #737d87;
+    color: var(--muted);
     font-size: 14px;
-    line-height: 2.4;
+    line-height: 2.5;
 }
 
 .hero-buttons {
@@ -312,7 +326,7 @@ a {
 
     margin-top: 30px;
 
-    color: #7c858e;
+    color: var(--muted);
     font-size: 11px;
 }
 
@@ -322,7 +336,7 @@ a {
 
 
 /* =====================================
-   کارت بیت‌کوین
+   کارت بازار
 ===================================== */
 
 .hero-visual {
@@ -334,13 +348,13 @@ a {
 
     padding: 28px;
 
-    background: #fff;
-    border: 1px solid #edf1ef;
-    border-radius: 22px;
+    background: linear-gradient(145deg, #141d18, #0d1410);
+    border: 1px solid #26382e;
+    border-radius: 20px;
 
     box-shadow:
-        0 25px 70px rgba(25, 70, 50, .08),
-        0 5px 20px rgba(0, 0, 0, .025);
+        0 25px 80px rgba(0, 0, 0, .35),
+        0 0 35px rgba(0, 214, 143, .035);
 }
 
 .hero-card-header {
@@ -352,7 +366,7 @@ a {
     border-bottom: 1px solid var(--border);
 
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .market-indicator {
@@ -368,7 +382,10 @@ a {
     width: 7px;
     height: 7px;
     border-radius: 50%;
+
     background: var(--green);
+
+    box-shadow: 0 0 10px var(--green);
     animation: pulse 2s infinite;
 }
 
@@ -405,7 +422,7 @@ a {
 .coin-icon {
     width: 45px;
     height: 45px;
-    border-radius: 14px;
+    border-radius: 13px;
 
     display: flex;
     align-items: center;
@@ -416,7 +433,7 @@ a {
 
 .coin-icon.btc {
     color: #f7931a;
-    background: #fff4e6;
+    background: rgba(247, 147, 26, .12);
 }
 
 .coin-value {
@@ -442,7 +459,7 @@ a {
     display: flex;
     justify-content: space-between;
 
-    color: #89929c;
+    color: var(--muted);
     font-size: 10px;
 
     margin-bottom: 15px;
@@ -462,13 +479,13 @@ a {
     padding-top: 15px;
     margin-top: 10px;
 
-    color: #9aa2aa;
+    color: var(--muted);
     font-size: 10px;
 }
 
 
 /* =====================================
-   نوار مزایا
+   نوار امکانات
 ===================================== */
 
 .trust-section {
@@ -477,7 +494,7 @@ a {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
 
-    background: #fff;
+    background: #0c110e;
 }
 
 .trust-grid {
@@ -500,10 +517,10 @@ a {
     align-items: center;
     justify-content: center;
 
-    border-radius: 13px;
+    border-radius: 12px;
 
     color: var(--green);
-    background: var(--green-light);
+    background: var(--green-soft);
 
     font-size: 22px;
 }
@@ -542,8 +559,8 @@ a {
 
     color: var(--green);
     font-size: 10px;
-    font-weight: 800;
-    letter-spacing: .7px;
+    font-weight: 900;
+    letter-spacing: .8px;
 
     margin-bottom: 8px;
 }
@@ -579,17 +596,17 @@ a {
 
 .markets-section {
     padding: 85px 0 95px;
-    background: #fafbfc;
+    background: var(--bg);
 }
 
 .market-box {
     overflow: hidden;
 
-    background: #fff;
-    border: 1px solid #edf0f2;
-    border-radius: 17px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
 
-    box-shadow: 0 8px 35px rgba(0, 0, 0, .025);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
 }
 
 .market-toolbar {
@@ -619,7 +636,7 @@ a {
     border-radius: 9px;
 
     background: transparent;
-    color: #858e98;
+    color: var(--muted);
 
     font-size: 11px;
     transition: var(--transition);
@@ -628,8 +645,8 @@ a {
 .market-tab:hover,
 .market-tab.active {
     color: var(--green);
-    background: var(--green-light);
-    border-color: #d9f1e5;
+    background: var(--green-soft);
+    border-color: rgba(0, 214, 143, .16);
 }
 
 .search-box {
@@ -641,10 +658,10 @@ a {
 
     padding: 10px 13px;
 
-    border: 1px solid #e9edf0;
+    border: 1px solid var(--border);
     border-radius: 10px;
 
-    background: #fff;
+    background: var(--bg-soft);
 
     transition: var(--transition);
 }
@@ -654,7 +671,7 @@ a {
 }
 
 .search-box span {
-    color: #929ba4;
+    color: var(--muted);
     font-size: 22px;
     line-height: 1;
 }
@@ -672,7 +689,7 @@ a {
 }
 
 .search-box input::placeholder {
-    color: #a2aab2;
+    color: #647168;
 }
 
 .market-table-wrapper {
@@ -687,22 +704,22 @@ a {
 }
 
 .market-table thead {
-    background: #fafbfc;
+    background: #151e19;
 }
 
 .market-table th {
     padding: 18px 22px;
 
-    color: #89929b;
+    color: var(--muted);
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: right;
 }
 
 .market-table td {
     padding: 19px 22px;
 
-    border-top: 1px solid #f0f2f4;
+    border-top: 1px solid var(--border);
 
     font-size: 12px;
 }
@@ -712,7 +729,7 @@ a {
 }
 
 .market-table tbody tr:hover {
-    background: #f7fcf9;
+    background: #17221c;
 }
 
 .market-table .loading-cell {
@@ -730,7 +747,7 @@ a {
 
     border-top: 1px solid var(--border);
 
-    color: #89929b;
+    color: var(--muted);
     font-size: 10px;
 }
 
@@ -741,18 +758,18 @@ a {
 .market-footer button {
     padding: 7px 13px;
 
-    border: 1px solid #dcefe5;
+    border: 1px solid rgba(0, 214, 143, .2);
     border-radius: 8px;
 
     color: var(--green);
-    background: #f2fbf6;
+    background: var(--green-soft);
 
     font-size: 10px;
     transition: var(--transition);
 }
 
 .market-footer button:hover {
-    background: #e2f6eb;
+    background: rgba(0, 214, 143, .2);
 }
 
 
@@ -762,6 +779,7 @@ a {
 
 .start-section {
     padding: 90px 0 100px;
+    background: #0b100d;
 }
 
 .centered {
@@ -788,19 +806,19 @@ a {
 .start-card {
     padding: 32px;
 
-    border: 1px solid #edf0f2;
-    border-radius: 17px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
 
-    background: #fff;
+    background: linear-gradient(145deg, #131b16, #0e1410);
 
     transition: var(--transition);
 }
 
 .start-card:hover {
-    border-color: #ccebd9;
+    border-color: rgba(0, 214, 143, .4);
     transform: translateY(-5px);
 
-    box-shadow: 0 15px 35px rgba(20, 100, 60, .06);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
 }
 
 .start-card-icon {
@@ -811,19 +829,15 @@ a {
     align-items: center;
     justify-content: center;
 
-    border-radius: 14px;
+    border-radius: 13px;
 
     font-size: 24px;
 }
 
-.start-card-icon.green {
-    color: var(--green);
-    background: var(--green-light);
-}
-
+.start-card-icon.green,
 .start-card-icon.blue {
-    color: var(--blue);
-    background: #edf4ff;
+    color: var(--green);
+    background: var(--green-soft);
 }
 
 .start-card h3 {
@@ -832,7 +846,7 @@ a {
 }
 
 .start-card p {
-    color: #7f8993;
+    color: var(--muted);
     font-size: 12px;
     line-height: 2.3;
 
@@ -849,7 +863,7 @@ a {
 
     color: var(--green);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .start-card a span {
@@ -870,14 +884,15 @@ a {
     padding: 65px 0;
 
     background:
-        linear-gradient(
-            110deg,
-            #f0faf5,
-            #f9fcfa
-        );
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(0, 214, 143, .08),
+            transparent 45%
+        ),
+        #101712;
 
-    border-top: 1px solid #e8f3ed;
-    border-bottom: 1px solid #e8f3ed;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .learn-content {
@@ -897,7 +912,7 @@ a {
 }
 
 .learn-content p {
-    color: #77847d;
+    color: var(--muted);
     font-size: 13px;
     margin-top: 8px;
 }
@@ -909,7 +924,7 @@ a {
 
 .site-footer {
     padding: 60px 0 25px;
-    background: #fff;
+    background: #080b09;
 }
 
 .footer-content {
@@ -923,7 +938,7 @@ a {
 .footer-brand p {
     max-width: 330px;
 
-    color: #89929b;
+    color: var(--muted);
     font-size: 11px;
     line-height: 2.3;
 
@@ -942,7 +957,7 @@ a {
 }
 
 .footer-links a {
-    color: #87919b;
+    color: var(--muted);
     font-size: 11px;
     transition: var(--transition);
 }
@@ -960,7 +975,7 @@ a {
 
     border-top: 1px solid var(--border);
 
-    color: #a0a8b0;
+    color: #66736b;
     font-size: 10px;
 }
 
@@ -983,15 +998,15 @@ a {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(22, 163, 106, .4);
+        box-shadow: 0 0 0 0 rgba(0, 214, 143, .4);
     }
 
     70% {
-        box-shadow: 0 0 0 8px rgba(22, 163, 106, 0);
+        box-shadow: 0 0 0 8px rgba(0, 214, 143, 0);
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgba(22, 163, 106, 0);
+        box-shadow: 0 0 0 0 rgba(0, 214, 143, 0);
     }
 }
 
@@ -1021,7 +1036,6 @@ a {
     .trust-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 
@@ -1071,9 +1085,9 @@ a {
         align-items: stretch;
         gap: 0;
 
-        background: #fff;
+        background: #0c110e;
         border-bottom: 1px solid var(--border);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, .05);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, .3);
     }
 
     .main-nav.show {
@@ -1182,7 +1196,6 @@ a {
     .footer-brand {
         grid-column: 1 / -1;
     }
-
 }
 
 
@@ -1257,7 +1270,6 @@ a {
         flex-direction: column;
         gap: 8px;
     }
-
 }
 
 
@@ -1275,5 +1287,4 @@ a {
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
     }
-
-       }
+   }

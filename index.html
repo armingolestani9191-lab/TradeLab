@@ -1,1 +1,383 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color" content="#080d19">
+    <meta name="description" content="TradeLab - محیط تمرینی معامله‌گری">
+
+    <title>TradeLab | آزمایشگاه معامله‌گری</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ساختار اصلی برنامه -->
+    <div class="app-container">
+
+        <!-- منوی کناری -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-logo">T<span>.</span></div>
+
+                <div class="brand-name">
+                    <h2>TradeLab</h2>
+                    <span>TRADE SMARTER</span>
+                </div>
+            </div>
+
+            <div class="menu-title">فضای کار</div>
+
+            <nav class="sidebar-menu">
+
+                <a href="#overview" class="menu-item active">
+                    <span>▦</span>
+                    نمای کلی
+                </a>
+
+                <a href="#markets" class="menu-item">
+                    <span>⌁</span>
+                    بازارها
+                </a>
+
+                <a href="#portfolio" class="menu-item">
+                    <span>◫</span>
+                    سبد دارایی
+                </a>
+
+                <a href="#orders" class="menu-item">
+                    <span>⇄</span>
+                    سفارش‌ها
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="demo-box">
+                    <span>✦</span>
+                    <h3>حساب آزمایشی</h3>
+                    <p>
+                        اینجا می‌تونی بدون استفاده از پول واقعی
+                        معامله‌گری رو تمرین کنی.
+                    </p>
+                </div>
+
+                <div class="user-profile">
+                    <div class="user-avatar">A</div>
+
+                    <div>
+                        <strong>معامله‌گر مهمان</strong>
+                        <small>Demo Account</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- محتوای اصلی -->
+        <main class="main-content" id="overview">
+
+            <!-- نوار بالایی -->
+            <header class="topbar">
+
+                <div class="page-title">
+                    <span>داشبورد</span>
+                    <span class="separator">/</span>
+                    <strong>نمای کلی</strong>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <div class="connection-status">
+                        <span class="status-dot"></span>
+                        <span id="connectionStatus">در حال اتصال</span>
+                    </div>
+
+                    <button class="icon-button" id="refreshButton">
+                        ↻
+                    </button>
+
+                    <div class="top-avatar">A</div>
+
+                </div>
+
+            </header>
+
+
+            <!-- معرفی داشبورد -->
+            <section class="welcome-section">
+
+                <div>
+                    <span class="section-label">TRADELAB DASHBOARD</span>
+
+                    <h1>
+                        به دنیای معامله‌گری
+                        <span>خوش اومدی.</span>
+                    </h1>
+
+                    <p>
+                        بازار رو بررسی کن، تمرین کن و مهارتت رو افزایش بده.
+                    </p>
+                </div>
+
+                <div class="demo-label">
+                    ✦ محیط تمرینی
+                </div>
+
+            </section>
+
+
+            <!-- کارت‌های اطلاعات حساب -->
+            <section class="stats-grid">
+
+                <article class="stat-card">
+
+                    <div class="stat-header">
+                        <span>موجودی مجازی</span>
+                        <span class="stat-icon">$</span>
+                    </div>
+
+                    <h2 id="demoBalance">$10,000.00</h2>
+
+                    <span class="stat-description">
+                        سرمایه اولیه حساب آزمایشی
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-header">
+                        <span>ارزش کل دارایی</span>
+                        <span class="stat-icon">◈</span>
+                    </div>
+
+                    <h2 id="totalValue">$10,000.00</h2>
+
+                    <span class="stat-description">
+                        موجودی نقدی و دارایی‌ها
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-header">
+                        <span>سود و زیان</span>
+                        <span class="stat-icon">↗</span>
+                    </div>
+
+                    <h2 id="totalPnl" class="positive">$0.00</h2>
+
+                    <span class="stat-description">
+                        عملکرد معاملات آزمایشی
+                    </span>
+
+                </article>
+
+            </section>
+
+
+            <!-- بازار ارزهای دیجیتال -->
+            <section class="content-card" id="markets">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">LIVE MARKET</span>
+                        <h2>بازار ارزهای دیجیتال</h2>
+
+                        <p>
+                            قیمت لحظه‌ای ارزهای دیجیتال
+                        </p>
+                    </div>
+
+                    <span class="market-badge">
+                        بازار جهانی
+                    </span>
+
+                </div>
+
+
+                <!-- ارزهای منتخب -->
+                <div class="featured-coins">
+
+                    <div class="featured-coin">
+                        <span class="coin-icon btc">₿</span>
+
+                        <div>
+                            <small>بیت‌کوین</small>
+                            <strong id="btcPrice">---</strong>
+                        </div>
+
+                        <span id="btcChange">---</span>
+                    </div>
+
+
+                    <div class="featured-coin">
+                        <span class="coin-icon eth">◆</span>
+
+                        <div>
+                            <small>اتریوم</small>
+                            <strong id="ethPrice">---</strong>
+                        </div>
+
+                        <span id="ethChange">---</span>
+                    </div>
+
+
+                    <div class="featured-coin">
+                        <span class="coin-icon sol">◎</span>
+
+                        <div>
+                            <small>سولانا</small>
+                            <strong id="solPrice">---</strong>
+                        </div>
+
+                        <span id="solChange">---</span>
+                    </div>
+
+                </div>
+
+
+                <!-- جستجوی ارزها -->
+                <div class="market-toolbar">
+
+                    <h3>لیست ارزها</h3>
+
+                    <input
+                        type="search"
+                        id="marketSearch"
+                        placeholder="جستجوی نام یا نماد ارز..."
+                    >
+
+                </div>
+
+
+                <!-- جدول بازار -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>نام دارایی</th>
+                                <th>قیمت</th>
+                                <th>تغییر ۲۴ ساعته</th>
+                                <th>حجم معاملات</th>
+                                <th>وضعیت</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="marketTable">
+
+                            <tr>
+                                <td colspan="5">
+                                    در حال دریافت اطلاعات بازار...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="market-footer">
+                    <span class="status-dot"></span>
+                    <span>اطلاعات بازار</span>
+
+                    <span id="lastUpdated">
+                        منتظر دریافت اطلاعات
+                    </span>
+                </div>
+
+            </section>
+
+
+            <!-- سبد دارایی و سفارش‌ها -->
+            <section class="bottom-grid">
+
+                <article class="content-card" id="portfolio">
+
+                    <div class="section-header">
+                        <div>
+                            <span class="section-label">PORTFOLIO</span>
+                            <h2>سبد دارایی</h2>
+                        </div>
+                    </div>
+
+                    <div class="empty-state">
+
+                        <span class="empty-icon">◫</span>
+
+                        <h3>هنوز دارایی‌ای نداری</h3>
+
+                        <p>
+                            دارایی‌های خریداری‌شده در این قسمت نمایش داده می‌شوند.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="content-card" id="orders">
+
+                    <div class="section-header">
+                        <div>
+                            <span class="section-label">ORDERS</span>
+                            <h2>آخرین سفارش‌ها</h2>
+                        </div>
+                    </div>
+
+                    <div class="empty-state">
+
+                        <span class="empty-icon">⇄</span>
+
+                        <h3>هنوز سفارشی ثبت نشده</h3>
+
+                        <p>
+                            تاریخچه معاملاتت اینجا نمایش داده می‌شود.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- فوتر -->
+            <footer class="footer">
+
+                <span>© 2026 TradeLab</span>
+
+                <span>
+                    ساخته‌شده برای یادگیری معامله‌گری
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+  </html>
